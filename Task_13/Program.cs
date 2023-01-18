@@ -4,14 +4,29 @@
 32679 -> 6  */
 
 Console.Write("Введите число: ");
-string str = Console.ReadLine();
 int number = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите цифру числа: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
-void TakeNumber(string str, int number)
+void TakeNumber(int number, int num)
 {
-    if (str.Length >= number)
-        Console.WriteLine(number + " -> " + str[number - 1]);
+    int clone_number = number;
+    int size = 0;
+    for (int i = 0; clone_number != 0; i++)
+    {
+        clone_number /= 10;
+        size++;
+    }
+    clone_number = number;
+    int[] arr = new int[size];
+    for (int i = size -1; i >= 0; i--)
+    {
+        arr[i] = clone_number % 10;
+        clone_number /= 10;
+    }
+    if (size >= num)
+        Console.WriteLine(number + " -> " + arr[num - 1]);
     else Console.WriteLine(number + " -> такой цифры нет");
 }
 
-TakeNumber(str, number);
+TakeNumber(number, num);
