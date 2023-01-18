@@ -4,17 +4,14 @@
 32679 -> 6  */
 
 Console.Write("Введите число: ");
+string str = Console.ReadLine();
 int number = Convert.ToInt32(Console.ReadLine());
-int num = number;
-string str = "";
-int count = 0;
-while (num != 0)
+
+void TakeNumber(string str, int number)
 {
-    str = str + (num % 10);
-    num /= 10;
-    count++;
+    if (str.Length >= number)
+        Console.WriteLine(number + " -> " + str[number - 1]);
+    else Console.WriteLine(number + " -> такой цифры нет");
 }
-if (count < 3)
-    Console.Write(number + " -> третьей цифры нет");
-else
-    Console.WriteLine(number + " -> " + str[str.Length - 3]);
+
+TakeNumber(str, number);
