@@ -10,22 +10,8 @@ int num = Convert.ToInt32(Console.ReadLine());
 
 void TakeNumber(int number, int num)
 {
-    int clone_number = number;
-    int size = 0;
-    for (int i = 0; clone_number != 0; i++)
-    {
-        clone_number /= 10;
-        size++;
-    }
-    clone_number = number;
-    int[] arr = new int[size];
-    for (int i = size -1; i >= 0; i--)
-    {
-        arr[i] = clone_number % 10;
-        clone_number /= 10;
-    }
-    if (size >= num)
-        Console.WriteLine(number + " -> " + arr[num - 1]);
+    if (number.ToString().Length >= num)
+        Console.WriteLine(number + " -> " + number.ToString()[num - 1]);
     else Console.WriteLine(number + " -> такой цифры нет");
 }
 
