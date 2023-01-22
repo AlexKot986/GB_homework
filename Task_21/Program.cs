@@ -18,7 +18,7 @@ int ax = Convert.ToInt32(point_a[0]);
 int ay = Convert.ToInt32(point_a[1]);
 int az = Convert.ToInt32(point_a[2]);
 
-Console.WriteLine("Введите координаты точки B: ");
+//Console.WriteLine("Координаты точки B: ");
 int[] point_b = {random.Next(-100, 101), random.Next(-100, 101), random.Next(-100, 101)};
 int bx = Convert.ToInt32(point_b[0]);
 int by = Convert.ToInt32(point_b[1]);
