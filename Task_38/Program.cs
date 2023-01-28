@@ -11,19 +11,20 @@ int[] CreateArray()
     return array;
 }
 
- void DiffMaxMinNumber(int[] array)
+ int MaxNumber(int[] array, out int min)
  {
-    int max = array[0];
-    int min = array[0];
+     int max = array[0];
+     min = array[0];
 
     for (int i = 0; i < array.Length - 1; i++)
     {
         if (array[i + 1] > max) max = array[i + 1];
         else if (array[i + 1] < min) min = array[i + 1];
     }
-   Console.WriteLine( max - min);     // a-(-b) = a+b
+    return max;
 }
 
+int min;
 int[] random_array = CreateArray();
-Console.Write("[" + string.Join(", ", random_array) + "] -> ");
-DiffMaxMinNumber(random_array);
+
+Console.Write("[" + string.Join(", ", random_array) + "] -> " + (MaxNumber(random_array, out min) - min));
