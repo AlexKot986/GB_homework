@@ -16,8 +16,8 @@ int ShowNumber(int[] array)
     int count = 0;
     foreach (int x in array)
     if (x % 2 == 0) count++;
-    Console.Write("[" + string.Join(", ", array));
     return count;
 }
 
-Console.WriteLine("] -> " + ShowNumber(CreateArray()));
+int[] random_array = CreateArray();
+Console.WriteLine("[" + string.Join(", ", random_array) + "] -> " + ShowNumber(random_array));
