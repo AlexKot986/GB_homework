@@ -17,9 +17,8 @@ int SumOddIndex(int[] array)
     int sum = 0;
     for (int i = 0; i < array.Length; i += 2)
       sum += array[i];
-      
-    Console.Write("[" + string.Join(" ", array));
     return sum;
 }
 
-Console.WriteLine("] -> " + SumOddIndex(CreateArray()));
+int[] random_array = CreateArray();
+Console.WriteLine("[" + string.Join(", ", random_array) + "] -> " + SumOddIndex(random_array));
