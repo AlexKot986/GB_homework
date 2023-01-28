@@ -5,16 +5,15 @@
 int[] CreateArray()
 {
     Random random = new Random();
-    int[] array = new int[random.Next(5, 11)];
+    int[] array = new int[random.Next(5, 21)];
     for (int i = 0; i < array.Length; i++)
-        array[i] = random.Next(1, 6);
-    Console.Write("[" + string.Join(" ", array));
+        array[i] = random.Next(-10, 11);
     return array;
 }
 
-int MinNumber(int[] array, out int max)
-{
-    max = array[0];
+ void DiffMaxMinNumber(int[] array)
+ {
+    int max = array[0];
     int min = array[0];
 
     for (int i = 0; i < array.Length - 1; i++)
@@ -22,13 +21,9 @@ int MinNumber(int[] array, out int max)
         if (array[i + 1] > max) max = array[i + 1];
         else if (array[i + 1] < min) min = array[i + 1];
     }
-
-    return min;
+   Console.WriteLine( max - min);     // a-(-b) = a+b
 }
-int max;
-int min;
 
-min = MinNumber(CreateArray(), out max);
-
-Console.WriteLine("] -> " + (max - min));
-
+int[] random_array = CreateArray();
+Console.Write("[" + string.Join(", ", random_array) + "] -> ");
+DiffMaxMinNumber(random_array);
