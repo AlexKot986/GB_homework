@@ -6,14 +6,14 @@
 void IntersectionPoint()
 {
     Console.WriteLine("Введите k1: ");
-    double k1 = Convert.ToInt64(Console.ReadLine());
+    double k1 = Convert.ToDouble(Console.ReadLine());
     Console.WriteLine("Введите b1: ");
-    double b1 = Convert.ToInt64(Console.ReadLine());
+    double b1 = Convert.ToDouble(Console.ReadLine());
 
     Console.WriteLine("Введите k2: ");
-    double k2 = Convert.ToInt64(Console.ReadLine());
+    double k2 = Convert.ToDouble(Console.ReadLine());
     Console.WriteLine("Введите b2: ");
-    double b2 = Convert.ToInt64(Console.ReadLine());
+    double b2 = Convert.ToDouble(Console.ReadLine());
 
     Console.WriteLine("Уравнение первой прямой: y = {0} * x + {1}", k1, b1);
     Console.WriteLine("Уравнение второй прямой: y = {0} * x + {1}", k2, b2);
