@@ -13,7 +13,11 @@ void CreateArray(int num1, int num2)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = Math.Round((random.NextDouble() * random.Next(1, 101)), 2);
+            array[i, j] = Math.Round((random.NextDouble() * random.Next(-100, 101)), 2);
+
+            if (array[i, j] == 0)
+            j--;
+            else
             Console.Write($"{array[i, j]}\t");
         }
         Console.WriteLine();
