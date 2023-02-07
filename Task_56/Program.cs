@@ -35,8 +35,8 @@ void PrintArray(int[,] array)
 int ToFindMinSumRow(int[,] array, out int minIndx)
 {
     int sum;
-    int sumMin = 34530;
     minIndx = 0;
+    int[] sums = new int[array.GetLength(0)];
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -46,13 +46,14 @@ int ToFindMinSumRow(int[,] array, out int minIndx)
             sum = sum + array[i, j];
         }
 
-        if (sumMin > sum) 
-        {
-            sumMin = sum;
-            minIndx = i;
-        }
+        sums[i] = sum;
+
     }
-    return sumMin;
+    for (int k = 0; k < sums.Length - 1; k++)
+    if (sums[minIndx] > sums[k + 1]) minIndx = k + 1;
+
+    Array.Sort(sums);
+    return sums[0];
 }
 
 int minIndx;
