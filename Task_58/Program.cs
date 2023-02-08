@@ -9,12 +9,12 @@
 int[,] CreateMatrix()
 {
     Random random = new Random();
-    int[,] matrix = new int[random.Next(3, 4), random.Next(3, 4)];
+    int[,] matrix = new int[random.Next(2, 4), random.Next(2, 4)];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = random.Next(1, 6);
+            matrix[i, j] = random.Next(1, 3);
         }
     }
     return matrix;
@@ -33,21 +33,25 @@ void PrintMatrix(int[,] matrix)
     Console.WriteLine();
 }
 
-
 int[,] firstMatrix = CreateMatrix();
-
 int[,] secondMatrix = CreateMatrix();
 
-int[,] MultiplyMatrix()
+int[,] MultiplyMatrix(int[,] firstMartix, int[,] secondMatrix)
 {
-    int[,] multi = new int[firstMatrix.GetLength(0), secondMatrix.GetLength(1)];
+    if (firstMartix.GetLength(1) != secondMatrix.GetLength(0))
+    {
+        Console.WriteLine("Вычистить невозможно!");
+        return new int[0,0];
+    }
+    
+    int[,] multi = new int[firstMartix.GetLength(0), secondMatrix.GetLength(1)];
 
     for (int a = 0; a < multi.GetLength(0); a++)
     {
         for (int b = 0; b < multi.GetLength(1); b++)
         {
             int m = 0;
-            for (int row = 0, col = 0; row < firstMatrix.GetLength(0); row++, col++)
+            for (int row = 0, col = 0; row < firstMartix.GetLength(1) || col < secondMatrix.GetLength(0); row++, col++)
             {
                 m = m + firstMatrix[a, col] * secondMatrix[row, b];
             }
@@ -59,8 +63,9 @@ int[,] MultiplyMatrix()
 Console.WriteLine("Даны 2 матрицы:");
 PrintMatrix(firstMatrix);
 PrintMatrix(secondMatrix);
+
 Console.WriteLine("Произведение двух матриц:");
-PrintMatrix(MultiplyMatrix());
+PrintMatrix(MultiplyMatrix(firstMatrix, secondMatrix));
 
 
 
