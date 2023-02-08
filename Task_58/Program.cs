@@ -6,6 +6,20 @@
 // 18 20
 // 15 18
 
+int[,] CreateMatrix()
+{
+    Random random = new Random();
+    int[,] matrix = new int[random.Next(3, 4), random.Next(3, 4)];
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = random.Next(1, 6);
+        }
+    }
+    return matrix;
+}
+
 void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -20,22 +34,20 @@ void PrintMatrix(int[,] matrix)
 }
 
 
-int[,] firstMatrix = {{2, 4},
-                      {3, 2},};
+int[,] firstMatrix = CreateMatrix();
 
-int[,] secondMatrix ={{3, 4},
-                      {3, 3}};
+int[,] secondMatrix = CreateMatrix();
 
-int[,] MultiplyMatrix(int a, int b)
+int[,] MultiplyMatrix()
 {
-    int[,] multi = new int[2,2];
+    int[,] multi = new int[firstMatrix.GetLength(0), secondMatrix.GetLength(1)];
 
-    for (a = 0; a < 2; a++)
+    for (int a = 0; a < multi.GetLength(0); a++)
     {
-        for (b = 0; b < 2; b++)
+        for (int b = 0; b < multi.GetLength(1); b++)
         {
             int m = 0;
-            for (int row = 0, col = 0; row < 2; row++, col++)
+            for (int row = 0, col = 0; row < firstMatrix.GetLength(0); row++, col++)
             {
                 m = m + firstMatrix[a, col] * secondMatrix[row, b];
             }
@@ -48,7 +60,7 @@ Console.WriteLine("Даны 2 матрицы:");
 PrintMatrix(firstMatrix);
 PrintMatrix(secondMatrix);
 Console.WriteLine("Произведение двух матриц:");
-PrintMatrix(MultiplyMatrix(0, 0));
+PrintMatrix(MultiplyMatrix());
 
 
 
