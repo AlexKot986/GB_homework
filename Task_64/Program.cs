@@ -9,7 +9,12 @@ string OrderDigits(int firstNumber, int secondNumber)
     return OrderDigits(firstNumber, secondNumber + 1) + " " + secondNumber;
 }
 
-int numFirst = new Random().Next(5, 11);
-int numSecond = new Random().Next(0, 6);
+int numFirst = new Random().Next(0, 11);
+int numSecond = new Random().Next(0, 11);
 
-Console.WriteLine($"Числа от {numFirst} до {numSecond} = -> {OrderDigits(numFirst, numSecond)}");
+int min;
+int max;
+if (numFirst < numSecond) {min = numFirst; max = numSecond;}
+else {max = numFirst; min = numSecond;}
+
+Console.WriteLine($"Числа от {max} до {min} = -> {OrderDigits(max, min)}");
