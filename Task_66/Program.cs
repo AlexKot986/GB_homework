@@ -11,8 +11,7 @@ int SumNumbers(int numFirst, int numSecond)
 int firstNum = new Random().Next(0, 11);
 int secondNum = new Random().Next(0, 11);
 
-int min;
-int max;
+int min, max;
 if (firstNum < secondNum) {min = firstNum; max = secondNum;}
 else {max = firstNum; min = secondNum;}
 
