@@ -12,8 +12,7 @@ string OrderDigits(int firstNumber, int secondNumber)
 int numFirst = new Random().Next(0, 11);
 int numSecond = new Random().Next(0, 11);
 
-int min;
-int max;
+int min, max;
 if (numFirst < numSecond) {min = numFirst; max = numSecond;}
 else {max = numFirst; min = numSecond;}
 
